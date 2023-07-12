@@ -22,11 +22,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           
-      - name: Save Python version Info
-        run: python -c "import sys; print(sys.version)" > version_info_${{ matrix.python-version }}.txt
+      - name: Display Python version Info
+        run: python -c "import sys; print(sys.version)" > version_info.txt
         
       - name: Upload Python Version Info
         uses: actions/upload-artifact@v2
         with:
           name: python-version-info-${{ matrix.python-version }}
-          path: version_info_${{ matrix.python-version }}.txt
+          path: version_info.txt
